@@ -1,4 +1,4 @@
-import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
+
 import { NavLink } from "react-router-dom";
 
 function NavPanel() {

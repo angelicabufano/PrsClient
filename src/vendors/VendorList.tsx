@@ -25,7 +25,16 @@ function VendorsPage() {
     loadVendors();
   }, []);
 
-  async function remove(vendor: Vendor) {}
+  // async function remove(vendor: Vendor) {
+  //   if (confirm("Are you sure you want to delete this Vendor?")) {
+  //     if (vendor.id) {
+  //       await vendorAPI.delete(vendor.id);
+  //       let updatedMovies = vendors.filter((v) => v.id !== vendor.id);
+  //       setVendor(updatedVendors);
+  //       toast.success("Successfully deleted.");
+  //     }
+  //   }
+  // }
 
   return (
     <>

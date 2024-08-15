@@ -1,5 +1,3 @@
-
-
 export class Vendor {
   id: number | undefined = undefined;
   code = "";
@@ -11,6 +9,9 @@ export class Vendor {
   phone = "";
   email = "";
 
+  get isNew(): boolean {
+    return this.id === undefined;
+  }
 
   constructor(initializer?: any) {
     if (!initializer) return;

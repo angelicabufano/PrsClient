@@ -5,6 +5,8 @@ import NavPanel from "./NavPanel";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import IndexPage from "./IndexPage";
 import VendorsPage from "./vendors/VendorsPage";
+import VendorCreatePage from "./vendors/VendorCreatePage";
+import VendorEditPage from "./vendors/VendorEditPage";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <Routes>
               <Route path="/" element={<IndexPage />} />
               <Route path="/vendors" element={<VendorsPage />} />
+              <Route path="/vendors/create" element={<VendorCreatePage />} />
+              <Route path="/vendors/edit/:id" element={<VendorEditPage />} />
             </Routes>
           </section>
         </main>

@@ -4,6 +4,7 @@ import { vendorAPI } from "./VendorAPI";
 import VendorCard from "./VendorCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function VendorsPage() {
   const [vendors, setVendor] = useState<Vendor[]>([]);
@@ -25,16 +26,16 @@ function VendorsPage() {
     loadVendors();
   }, []);
 
-  // async function remove(vendor: Vendor) {
-  //   if (confirm("Are you sure you want to delete this Vendor?")) {
-  //     if (vendor.id) {
-  //       await vendorAPI.delete(vendor.id);
-  //       let updatedMovies = vendors.filter((v) => v.id !== vendor.id);
-  //       setVendor(updatedVendors);
-  //       toast.success("Successfully deleted.");
-  //     }
-  //   }
-  // }
+  async function remove(vendor: Vendor) {
+    if (confirm("Are you sure you want to delete this Vendor?")) {
+      if (vendor.id) {
+        await vendorAPI.delete(vendor.id);
+        let updatedVendors = vendors.filter((v) => v.id !== vendor.id);
+        setVendor(updatedVendors);
+        toast.success("Successfully deleted.");
+      }
+    }
+  }
 
   return (
     <>

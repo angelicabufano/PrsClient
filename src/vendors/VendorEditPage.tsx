@@ -1,15 +1,16 @@
 import VendorForm from "./VendorForm";
 
-export default function VendorEditPage() {
+function VendorEditPage() {
   return (
     <>
-      <header className="d-flex justify-content-between pb-4 mb-4 border-bottom border-2">
+      <nav className="d-flex justify-content-between">
         <h2>Edit Vendor</h2>
-      </header>
+      </nav>
+      <hr />
 
-      <section className="d-flex bg-light gap-5 p-4 rounded-4 flex-wrap">
-        <VendorForm />
-      </section>
+      <VendorForm />
     </>
   );
 }
+
+export default VendorEditPage;

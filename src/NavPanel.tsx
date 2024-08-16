@@ -30,7 +30,7 @@ function NavPanel() {
       </ul>
     </div>
     <nav style={{ width: "15rem" }}>
-      <ul className="nav flex-column nav nav-pills p-3">
+      <ul className="nav flex-column nav nav-pills p-3 ">
         <li className="pb-2">Purchase</li>
         <li className="nav-item">
           <a className="nav-link" aria-current="page" href="request.html">
@@ -56,13 +56,13 @@ function NavPanel() {
             Vendors
           </NavLink>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="vendor-create.html">
+        <li className="nav-item" >
+          <NavLink to= "/users" className={"nav-link"}>
             <svg className="bi me-2" width={16} height={16} fill="currentColor">
               <use xlinkHref="./node_modules/bootstrap-icons/bootstrap-icons.svg#people" />
             </svg>
             Users
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

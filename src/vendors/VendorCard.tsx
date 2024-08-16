@@ -9,30 +9,34 @@ interface VendorCardProps {
 
 function VendorCard({ vendor, onRemove }: VendorCardProps) {
   return (
-    <article className="card p-4" key={vendor.id}>
-      <Link to={`/vendor/detail/${vendor.id}`}>
+    <div>
+      <article className="card p-4" style={{ width: "18rem" }} key={vendor.id}>
         <strong> {vendor.name}</strong>
-      </Link>
-      <small>
-        Address: {vendor.address} ({vendor.city}) ({vendor.state}) ({vendor.zip})
-      </small>
-      <small></small>
-      <div className="d-flex gap-2">
-        <Link className="small" to={`/vendor/edit/${vendor.id}`}>
-          edit
-        </Link>
-        |
-        <a
-          className="small"
-          onClick={(event: SyntheticEvent) => {
-            event.preventDefault();
-            onRemove(vendor);
-          }}
-        >
-          delete
-        </a>
-      </div>
-    </article>
+        <small>
+          <span className="badge text-bg-secondary">{vendor.code}</span>
+          <div>{vendor.address}</div>
+          <div>
+            {vendor.city} {vendor.state}
+          </div>
+          {vendor.zip}
+        </small>
+        <small></small>
+        <div className="d-flex gap-2">
+          <Link className="small" to={`/vendors/edit/${vendor.id}`}>
+            Edit
+          </Link>
+          |
+          <a
+            className="small"
+            onClick={(event: SyntheticEvent) => {
+              event.preventDefault();
+              onRemove(vendor);
+            }}>
+            Delete
+          </a>
+        </div>
+      </article>
+    </div>
   );
 }
 

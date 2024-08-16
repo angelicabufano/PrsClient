@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { Vendor } from "./Vendor";
-import { vendorAPI } from "./VendorAPI";
-import VendorCard from "./VendorCard";
+import { User } from "./User";
+import { userAPI } from "./UserAPI";
+import UserCard from "./UserCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import toast from "react-hot-toast";
 
-function VendorsPage() {
-  const [vendors, setVendor] = useState<Vendor[]>([]);
+function UsersPage() {
+  const [users, setUser] = useState<User[]>([]);
   const [busy, setBusy] = useState(false);
 
-  async function loadVendors() {
+  async function loadUsers() {
     try {
       setBusy(true);
-      const data = await vendorAPI.list();
-      setVendor(data);
+      const data = await userAPI.list();
+      setUser(data);
     } catch (error: any) {
       toast.error(error.message);
     } finally {
@@ -22,15 +22,15 @@ function VendorsPage() {
   }
 
   useEffect(() => {
-    loadVendors();
+    loadUsers();
   }, []);
 
-  async function remove(vendor: Vendor) {
+  async function remove(user: User) {
     if (confirm("Are you sure you want to delete this Vendor?")) {
-      if (vendor.id) {
-        await vendorAPI.delete(vendor.id);
-        let updatedVendors = vendors.filter((v) => v.id !== vendor.id);
-        setVendor(updatedVendors);
+      if (user.id) {
+        await userAPI.delete(user.id);
+        let updatedUsers = users.filter((u) => u.id !== user.id);
+        setUser(updatedUsers);
         toast.success("Successfully deleted.");
       }
     }
@@ -48,12 +48,12 @@ function VendorsPage() {
    
    
       <section className="d-flex flex-wrap gap-4 list bg-secondary-subtle p-3">
-        {vendors.map((vendor) => (
-          <VendorCard key={vendor.id} vendor={vendor} onRemove={remove} />
+        {users.map((user) => (
+          <UserCard key={user.id} user={user} onRemove={remove} />
         ))}
       </section>
     </>
   );
 }
 
-export default VendorsPage;
+export default UsersPage;

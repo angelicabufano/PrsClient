@@ -6,10 +6,7 @@ import toast from "react-hot-toast";
 import { vendorAPI } from "./VendorAPI";
 
 export default function VendorForm() {
-  //we will navigate back to the main page when save
   const navigate = useNavigate();
-  //I need the id from useParams to pass to the find()
-  //in this case, the type needs to specify the key?
   const { id } = useParams<{ id: string }>();
   const vendorId = Number(id);
 
@@ -47,14 +44,29 @@ export default function VendorForm() {
           <label htmlFor="code" className="form-label">
             Vendor Code
           </label>
-          <input id="code" type="text" className={`form-control ${errors.code && "is-invalid"}`} placeholder="Enter short vendor code" {...register("code", {required: "Vendor code is required"})} autoFocus/>
+          <input
+            id="code"
+            {...register("code", { required: "Vendor code is required" })}
+            className={`form-control ${errors.code && "is-invalid"}`}
+            placeholder="Enter short vendor code"
+            type="text"
+            autoFocus
+          />
           <div className="invalid-feedback">{errors?.code?.message}</div>
         </div>
+
         <div className="mb-3 w-75">
           <label htmlFor="name" className="form-label">
             Vendor Name
           </label>
-          <input id="name" type="text" className={`form-control ${errors.name && "is-invalid"}`}  placeholder="Enter vendor name" {...register("name", {required: "Vendor name is required"})} autoFocus />
+          <input
+            id="name"
+            {...register("name", { required: "Vendor name is required" })}
+            className={`form-control ${errors.name && "is-invalid"}`}
+            placeholder="Enter vendor name"
+            type="text"
+            autoFocus
+          />
           <div className="invalid-feedback">{errors?.name?.message}</div>
         </div>
       </div>
@@ -63,9 +75,15 @@ export default function VendorForm() {
           <label htmlFor="address" className="form-label">
             Address
           </label>
-          <input id="address" type="text" className={`form-control ${errors.address && "is-invalid"}`} placeholder="Enter vendor's address" {...register("address", {required: "Address is required"})} autoFocus/>
+          <input
+            id="address"
+            {...register("address", { required: "Address is required" })}
+            className={`form-control ${errors.address && "is-invalid"}`}
+            placeholder="Enter vendor's address"
+            type="text"
+            autoFocus
+          />
           <div className="invalid-feedback">{errors?.address?.message}</div>
-
         </div>
       </div>
       <div className="row-3 d-flex flex-row w-100 gap-4">
@@ -73,13 +91,21 @@ export default function VendorForm() {
           <label htmlFor="city" className="form-label">
             City
           </label>
-          <input  id="city" type="text" className={`form-control ${errors.city && "is-invalid"}`} placeholder="Enter city" {...register("city", {required: "City is required"})} autoFocus/>
+          <input
+            id="city"
+            {...register("city", { required: "City is required" })}
+            className={`form-control ${errors.city && "is-invalid"}`}
+            placeholder="Enter city"
+            type="text"
+            autoFocus
+          />
           <div className="invalid-feedback">{errors?.city?.message}</div>
-
         </div>
         <div className="mb-3 w-25">
           <label htmlFor="form-label">State</label>
-          <select className={`form-select ${errors.state && "is-invalid"}`} {...register("state", {required: "State is required"})}>
+          <select
+            className={`form-select ${errors.state && "is-invalid"}`}
+            {...register("state", { required: "State is required" })}>
             <option value="">Select state...</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -89,7 +115,7 @@ export default function VendorForm() {
             <option value="CO">Colorado</option>
             <option value="CT">Connecticut</option>
             <option value="DE">Delaware</option>
-            <option value="DC">District Of Columbia</option>
+            <option value="DC">District of Columbia</option>
             <option value="FL">Florida</option>
             <option value="GA">Georgia</option>
             <option value="HI">Hawaii</option>
@@ -134,13 +160,18 @@ export default function VendorForm() {
             <option value="WY">Wyoming</option>
           </select>
           <div className="invalid-feedback">{errors?.state?.message}</div>
-
         </div>
         <div className="mb-3 w-25">
           <label htmlFor="zip" className="form-label">
             Zip
           </label>
-          <input id="zip" type="text" className={`form-control ${errors.zip && "is-invalid"}`} placeholder="Enter zip code" {...register("zip", {required: "Zip code is required"})}/>
+          <input
+            id="zip"
+            {...register("zip", { required: "Zip code is required" })}
+            className={`form-control ${errors.zip && "is-invalid"}`}
+            placeholder="Enter zip code"
+            type="text"
+          />
           <div className="invalid-feedback">{errors?.zip?.message}</div>
         </div>
       </div>
@@ -149,14 +180,25 @@ export default function VendorForm() {
           <label htmlFor="phone" className="form-label">
             Phone
           </label>
-          <input id="phone" type="text" className="form-control" placeholder="Enter phone number" {...register("phone")}/>
-
+          <input
+            id="phone"
+            {...register("phone")}
+            className="form-control"
+            placeholder="Enter phone number"
+            type="text"
+          />
         </div>
         <div className="mb-3 w-50">
           <label htmlFor="email" className="form-label">
             Email
           </label>
-          <input id="email" type="email" className="form-control" placeholder="Enter email address" {...register("email")} />
+          <input
+            id="email"
+            {...register("email")}
+            className="form-control"
+            placeholder="Enter email address"
+            type="email"
+          />
         </div>
       </div>
       <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">

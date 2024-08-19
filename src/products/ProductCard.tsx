@@ -15,7 +15,7 @@ function ProductCard({ product, onRemove }: ProductCardProps) {
 
         <small>
           <span className="badge text-bg-secondary">{product.price}</span>
-          <div>{product.unit}</div>
+          <div>{product.unit} {product.partNbr}</div>
           <div>
             {product.vendorId} 
           </div>

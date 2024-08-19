@@ -4,7 +4,7 @@ import { Product } from "./Product";
 
 const url = `${BASE_URL}/products`;
 
-export const userAPI = {
+export const productAPI = {
   list(): Promise<Product[]> {
     return fetch(url).then(checkStatus).then(delay(200)).then(parseJSON);
   },

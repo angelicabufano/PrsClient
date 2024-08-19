@@ -42,17 +42,17 @@ export default function ProductForm() {
       <div className="row-1 d-flex flex-row w-100 gap-4">
         <div className="mb-3 w-25">
           <label htmlFor="code" className="form-label">
-            Product Code
+            Part Number
           </label>
           <input
-            id="code"
-            {...register("code", { required: "Product code is required" })}
-            className={`form-control ${errors.code && "is-invalid"}`}
-            placeholder="Enter short product code"
+            id="partNbr"
+            {...register("partNbr", { required: "Part Number is required" })}
+            className={`form-control ${errors.partNbr && "is-invalid"}`}
+            placeholder="Enter short part number"
             type="text"
             autoFocus
           />
-          <div className="invalid-feedback">{errors?.code?.message}</div>
+          <div className="invalid-feedback">{errors?.partNbr?.message}</div>
         </div>
 
         <div className="mb-3 w-75">
@@ -72,134 +72,64 @@ export default function ProductForm() {
       </div>
       <div className="row-2 d-flex flex-row w-100 gap-4">
         <div className="mb-3 w-100">
-          <label htmlFor="address" className="form-label">
-            Address
+          <label htmlFor="price" className="form-label">
+            Price
           </label>
           <input
-            id="address"
-            {...register("address", { required: "Address is required" })}
-            className={`form-control ${errors.address && "is-invalid"}`}
-            placeholder="Enter product's address"
+            id="price"
+            {...register("price")}
+            className={`form-control ${errors.price && "is-invalid"}`}
+        
             type="text"
             autoFocus
           />
-          <div className="invalid-feedback">{errors?.address?.message}</div>
+          <div className="invalid-feedback">{errors?.price?.message}</div>
         </div>
       </div>
       <div className="row-3 d-flex flex-row w-100 gap-4">
         <div className="mb-3 w-50">
-          <label htmlFor="city" className="form-label">
-            City
+          <label htmlFor="unit" className="form-label">
+            Unit
           </label>
           <input
-            id="city"
-            {...register("city", { required: "City is required" })}
-            className={`form-control ${errors.city && "is-invalid"}`}
-            placeholder="Enter city"
+            id="unit"
+            {...register("unit", { required: "Unit is required" })}
+            className={`form-control ${errors.unit && "is-invalid"}`}
+            placeholder="Enter unit"
             type="text"
             autoFocus
           />
-          <div className="invalid-feedback">{errors?.city?.message}</div>
+          <div className="invalid-feedback">{errors?.unit?.message}</div>
         </div>
-        <div className="mb-3 w-25">
-          <label htmlFor="form-label">State</label>
-          <select
-            className={`form-select ${errors.state && "is-invalid"}`}
-            {...register("state", { required: "State is required" })}>
-            <option value="">Select state...</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="DC">District of Columbia</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
-          </select>
-          <div className="invalid-feedback">{errors?.state?.message}</div>
-        </div>
-        <div className="mb-3 w-25">
-          <label htmlFor="zip" className="form-label">
-            Zip
+        <div className="row-3 d-flex flex-row w-100 gap-4">
+        <div className="mb-3 w-50">
+          <label htmlFor="photoPath" className="form-label">
+            Photo Path
           </label>
           <input
-            id="zip"
-            {...register("zip", { required: "Zip code is required" })}
-            className={`form-control ${errors.zip && "is-invalid"}`}
-            placeholder="Enter zip code"
+            id="photoPath"
+            {...register("photoPath", { required: "photoPath is required" })}
+            className={`form-control ${errors.photoPath && "is-invalid"}`}
+            placeholder="Enter photoPath"
+            type="text"
+            autoFocus
+          />
+          <div className="invalid-feedback">{errors?.photoPath?.message}</div>
+        </div><div className="mb-3 w-25">
+          <label htmlFor="vendorId" className="form-label">
+          vendorId
+          </label>
+          <input
+            id="vendorId"
+            {...register("vendorId", { required: "vendorId is required" })}
+            className={`form-control ${errors.vendorId && "is-invalid"}`}
+            placeholder="Enter vendorId"
             type="text"
           />
-          <div className="invalid-feedback">{errors?.zip?.message}</div>
+          <div className="invalid-feedback">{errors?.vendorId?.message}</div>
         </div>
       </div>
-      <div className="row-1 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-50">
-          <label htmlFor="phone" className="form-label">
-            Phone
-          </label>
-          <input
-            id="phone"
-            {...register("phone")}
-            className="form-control"
-            placeholder="Enter phone number"
-            type="text"
-          />
-        </div>
-        <div className="mb-3 w-50">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            id="email"
-            {...register("email")}
-            className="form-control"
-            placeholder="Enter email address"
-            type="email"
-          />
-        </div>
+      
       </div>
       <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">
         <div className="d-flex justify-content-end mt-4">

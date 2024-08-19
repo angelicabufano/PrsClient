@@ -9,6 +9,9 @@ import VendorEditPage from "./vendors/VendorEditPage";
 import UsersPage from "./users/UsersPage";
 import UserCreatePage from "./users/UserCreatePage";
 import UserEditPage from "./users/UserEditPage";
+import ProductsPage from "./products/ProductsPage";
+import ProductCreatePage from "./products/ProductCreatePage";
+import ProductEditPage from "./products/ProductEditPage";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
               <Route path="users" element={<UsersPage/>}/>
               <Route path="users/create" element={<UserCreatePage/>}/>
               <Route path="users/edit/:id" element={<UserEditPage/>}/>
+              <Route path="/products" element={<ProductsPage/>}/>
+              <Route path="/products/create" element={<ProductCreatePage/>}/>
+              <Route path="/products/edit/:id" element={<ProductEditPage/>}/>
             </Routes>
           </section>
         </main>

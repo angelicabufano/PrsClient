@@ -21,9 +21,9 @@ function NavPanel() {
               </NavLink>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
-                Create Product
-              </a>
+            <NavLink to="/products" className="dropdown-item">
+                Create Products
+              </NavLink>
             </li>
             <li>
               <a className="dropdown-item" href="#">
@@ -48,14 +48,13 @@ function NavPanel() {
                 Requests
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="product.html">
+            <NavLink to="/products" className={"nav-link"}>
                 <svg className="bi me-2" width={16} height={16} fill="currentColor">
                   <use xlinkHref={`${bootstrapIcons}#grid`} />
                 </svg>
                 Products
-              </a>
-            </li>
+              </NavLink>
+          
             <li>
               <NavLink to="/vendors" className={"nav-link"}>
                 <svg className="bi me-2" width={16} height={16} fill="currentColor">

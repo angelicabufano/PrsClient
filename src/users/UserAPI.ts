@@ -2,11 +2,11 @@ import { BASE_URL, checkStatus, delay, parseJSON } from "../utility/fetchUtiliti
 
 import { User } from "./User";
 
-let url = `${BASE_URL}/users`;
+const url = `${BASE_URL}/users`;
 
 export const userAPI = {
   list(): Promise<User[]> {
-    return fetch(`${url}?_sort=name&_order=asc`).then(delay(600)).then(checkStatus).then(parseJSON);
+    return fetch(url).then(checkStatus).then(delay(200)).then(parseJSON);
   },
 
   find(id: number): Promise<User> {
@@ -33,7 +33,8 @@ export const userAPI = {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(checkStatus);
+    })   .then(checkStatus)
+ 
   },
 
   delete(id: number) {

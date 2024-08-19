@@ -26,7 +26,7 @@ function UsersPage() {
   }, []);
 
   async function remove(user: User) {
-    if (confirm("Are you sure you want to delete this Vendor?")) {
+    if (confirm("Are you sure you want to delete this User?")) {
       if (user.id) {
         await userAPI.delete(user.id);
         let updatedUsers = users.filter((u) => u.id !== user.id);

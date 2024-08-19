@@ -7,6 +7,8 @@ import VendorsPage from "./vendors/VendorsPage";
 import VendorCreatePage from "./vendors/VendorCreatePage";
 import VendorEditPage from "./vendors/VendorEditPage";
 import UsersPage from "./users/UsersPage";
+import UserCreatePage from "./users/UserCreatePage";
+import UserEditPage from "./users/UserEditPage";
 
 function App() {
   return (
@@ -22,8 +24,9 @@ function App() {
               <Route path="/vendors" element={<VendorsPage />} />
               <Route path="/vendors/create" element={<VendorCreatePage />} />
               <Route path="/vendors/edit/:id" element={<VendorEditPage />} />
-              <Route path="/users" element={<UsersPage />} />
-              
+              <Route path="users" element={<UsersPage/>}/>
+              <Route path="users/create" element={<UserCreatePage/>}/>
+              <Route path="users/edit/:id" element={<UserEditPage/>}/>
             </Routes>
           </section>
         </main>

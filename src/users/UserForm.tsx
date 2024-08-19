@@ -121,12 +121,12 @@ function UserForm() {
             <label className="form-label">Role</label>
             <br />
             <div className="form-check form-check-inline">
-              <input type="checkbox" className="form-check-input" />
+              <input type="checkbox" className="form-check-input" {...register("isReviewer")}/>
 
               <label className="form-check-label">Reviewer</label>
             </div>
             <div className="form-check form-check-inline">
-              <input type="checkbox" className="form-check-input" />
+              <input type="checkbox" className="form-check-input" {...register("isAdmin")}/>
               <label className="form-check-label">Admin</label>
             </div>
           </div>

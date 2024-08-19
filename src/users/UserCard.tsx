@@ -33,7 +33,9 @@ function UserCard({ user, onRemove }: UserCardProps) {
       </address>
       <Dropdown align="end">
         <Dropdown.Toggle variant="link" bsPrefix="p-0">
-          &#x22EE; 
+        <svg className=" m-2 text-primary" width={30} height={20} fill="currentColor">
+                <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#three-dots-vertical" />
+              </svg>
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

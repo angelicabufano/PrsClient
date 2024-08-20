@@ -11,17 +11,17 @@ interface RequestCardProps {
 }
 function RequestCard({ request, onRemove }: RequestCardProps) {
 
-  // Determine the badge class based on the request status
+  
   const getBadgeClass = (status: string) => {
     switch (status.toLowerCase()) {
       case "new":
-        return "badge bg-primary"; // Blue badge for "New"
+        return "badge bg-primary"; 
       case "review":
-        return "badge bg-warning"; // Yellow badge for "Review"
+        return "badge bg-warning";
       case "approved":
-        return "badge bg-success"; // Green badge for "Approved"
+        return "badge bg-success"; 
       case "rejected":
-        return "badge bg-danger"; // Red badge for "Rejected"
+        return "badge bg-danger"; 
       
     }
   };

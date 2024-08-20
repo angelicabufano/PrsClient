@@ -23,7 +23,7 @@ function RequestForm() {
       setUser(userList);
 
       if (!requestId) {
-        return Promise.resolve(new Request());
+        return Promise.resolve(new Request({userId: 62}));
       } else {
         return await requestAPI.find(requestId);
       }
@@ -116,8 +116,8 @@ function RequestForm() {
             <select
               id="user"
               {...register("userId", { required: "Requested by is Required" })}
-              defaultValue=""
-              disabled
+              // defaultValue=""
+              // disabled
               className={`form-select ${errors.userId && "is-invalid"}`}>
               <option value=""></option>
               {users.map((user) => (
@@ -130,7 +130,7 @@ function RequestForm() {
           </div>
 
           <div className="offset-7">
-            <NavLink to="/request" className="btn btn-outline-primary me-2 form-check">
+            <NavLink to="/requests" className="btn btn-outline-primary me-2 form-check">
               Cancel
             </NavLink>
             <button className="btn btn-primary form-check">

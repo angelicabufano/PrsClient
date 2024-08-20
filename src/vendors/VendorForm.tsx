@@ -38,7 +38,7 @@ export default function VendorForm() {
   };
 
   return (
-    <form className="d-flex flex-wrap w-75 gap-2" onSubmit={handleSubmit(save)} noValidate>
+    <form className="d-flex flex-wrap w-75 gap-2 " onSubmit={handleSubmit(save)} noValidate>
       <div className="row-1 d-flex flex-row w-100 gap-4">
         <div className="mb-3 w-25">
           <label htmlFor="code" className="form-label">

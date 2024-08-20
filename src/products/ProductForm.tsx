@@ -4,11 +4,15 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Product } from "./Product";
 import toast from "react-hot-toast";
 import { productAPI } from "./ProductAPI";
+import { Vendor } from "../vendors/Vendor";
+import { vendorAPI } from "../vendors/VendorAPI";
+import { useState } from "react";
 
 export default function ProductForm() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const productId = Number(id);
+  const [vendors, setVendor] = useState<Vendor[]>([])
 
   const {
     register,
@@ -16,6 +20,9 @@ export default function ProductForm() {
     formState: { errors },
   } = useForm<Product>({
     defaultValues: async () => {
+      let vendorList = await vendorAPI.list();
+      setVendor(vendorList);
+      
       if (!productId) {
         return Promise.resolve(new Product());
       } else {
@@ -40,28 +47,28 @@ export default function ProductForm() {
   return (
     <form className="d-flex flex-wrap w-75 gap-2" onSubmit={handleSubmit(save)} noValidate>
       <div className="row-1 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-25">
+        <div className="col-md-3">
           <label htmlFor="code" className="form-label">
-            Part Number
+            Product Number
           </label>
           <input
             id="partNbr"
-            {...register("partNbr", { required: "Part Number is required" })}
+            {...register("partNbr", { required: "Number is required" })}
             className={`form-control ${errors.partNbr && "is-invalid"}`}
-            placeholder="Enter short part number"
+            placeholder="Enter product number"
             type="text"
             autoFocus
           />
           <div className="invalid-feedback">{errors?.partNbr?.message}</div>
         </div>
 
-        <div className="mb-3 w-75">
+        <div className="col-md-8">
           <label htmlFor="name" className="form-label">
             Product Name
           </label>
           <input
             id="name"
-            {...register("name", { required: "Product name is required" })}
+            {...register("name", { required: "Name is required" })}
             className={`form-control ${errors.name && "is-invalid"}`}
             placeholder="Enter product name"
             type="text"
@@ -70,24 +77,23 @@ export default function ProductForm() {
           <div className="invalid-feedback">{errors?.name?.message}</div>
         </div>
       </div>
-      <div className="row-2 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-100">
+      <div className="d-flex flex-row w-100 gap-4">
+        <div className="col-md-3">
           <label htmlFor="price" className="form-label">
             Price
           </label>
           <input
             id="price"
-            {...register("price")}
+            {...register("price", { required: "Price is required" })}
+            placeholder="Enter product's price"
             className={`form-control ${errors.price && "is-invalid"}`}
-        
             type="text"
             autoFocus
           />
           <div className="invalid-feedback">{errors?.price?.message}</div>
         </div>
-      </div>
-      <div className="row-3 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-50">
+
+        <div className="col-md-3">
           <label htmlFor="unit" className="form-label">
             Unit
           </label>
@@ -102,35 +108,24 @@ export default function ProductForm() {
           <div className="invalid-feedback">{errors?.unit?.message}</div>
         </div>
         <div className="row-3 d-flex flex-row w-100 gap-4">
-        <div className="mb-3 w-50">
-          <label htmlFor="photoPath" className="form-label">
-            Photo Path
-          </label>
-          <input
-            id="photoPath"
-            {...register("photoPath", { required: "photoPath is required" })}
-            className={`form-control ${errors.photoPath && "is-invalid"}`}
-            placeholder="Enter photoPath"
-            type="text"
-            autoFocus
-          />
-          <div className="invalid-feedback">{errors?.photoPath?.message}</div>
-        </div><div className="mb-3 w-25">
-          <label htmlFor="vendorId" className="form-label">
-          vendorId
-          </label>
-          <input
-            id="vendorId"
-            {...register("vendorId", { required: "vendorId is required" })}
-            className={`form-control ${errors.vendorId && "is-invalid"}`}
-            placeholder="Enter vendorId"
-            type="text"
-          />
-          <div className="invalid-feedback">{errors?.vendorId?.message}</div>
+          <div className="mb-3 w-50">
+          <label htmlFor="form-label">Vendor</label>
+          <select
+            {...register("vendorId", { required: "Vendor is Required" })}
+            className={`form-select ${errors.vendorId && "is-invalid"}`}>
+              <option value="">Select...</option>
+              {vendors.map((vendor) => (
+                <option key={vendor.id} value={vendor.id}>
+                  {vendor.name}
+                </option>
+              ))}
+
+            </select>
+            <div className="invalid-feedback">{errors?.vendor?.message}</div>
+          </div>
         </div>
       </div>
-      
-      </div>
+     
       <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">
         <div className="d-flex justify-content-end mt-4">
           <Link className="btn btn-outline-primary me-2" to={"/products"}>

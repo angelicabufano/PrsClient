@@ -4,11 +4,11 @@ import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 function NavPanel() {
   return (
     <>
-      <nav className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border-end min-vh-100 position-sticky">
+      <nav className="d-flex flex-column flex-shrink-0 p-3 bg-body-secondary border-end min-vh-100 position-sticky">
         <div className="btn-group dropend">
           <button type="button" className="btn dropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <span className="text-primary fw-semibold">
-              <svg className="bi m-2" width="32" height="32" fill="currentColor">
+              <svg className="bi m-2" width="16" height="16" fill="currentColor">
                 <use xlinkHref={`${bootstrapIcons}#plus-circle-fill`} />
               </svg>
               Create New

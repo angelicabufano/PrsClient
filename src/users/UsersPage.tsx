@@ -10,7 +10,7 @@ function UsersPage() {
         <Link to={"/users/create"} role="button1" className="btn btn-primary">
         <svg className="bi m-2" width="20" height="20" fill="currentColor">
                 <use xlinkHref={`${bootstrapIcons}#plus`} />
-              </svg>  Add User
+              </svg> Create a User
         </Link>
       </nav>
 

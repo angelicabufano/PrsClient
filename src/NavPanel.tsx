@@ -5,48 +5,17 @@ function NavPanel() {
   return (
     <>
       <nav className="d-flex flex-column flex-shrink-0 p-3 bg-body-secondary border-end min-vh-100 position-sticky">
-        <div className="btn-group dropend">
-          <button type="button" className="btn dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <span className="text-primary fw-semibold">
-              <svg className="bi m-2" width="16" height="16" fill="currentColor">
-                <use xlinkHref={`${bootstrapIcons}#plus-circle-fill`} />
-              </svg>
-              Create New
-            </span>
-          </button>
-          <ul className="dropdown-menu">
-            <li>
-              <NavLink to="/vendors" className="dropdown-item">
-                Create Vendor
-              </NavLink>
-            </li>
-            <li>
-            <NavLink to="/products" className="dropdown-item">
-                Create Products
-              </NavLink>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Create Request
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Create User
-              </a>
-            </li>
-          </ul>
-        </div>
+       
         <nav style={{ width: "15rem" }}>
           <ul className="nav flex-column nav nav-pills p-3 ">
             <li className="pb-2">Purchase</li>
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="request.html">
+            <NavLink to="/requests" className={"nav-link"}>
                 <svg className="bi me-2" width={16} height={16} fill="currentColor">
                   <use xlinkHref={`${bootstrapIcons}#cart`} />
                 </svg>
                 Requests
-              </a>
+              </NavLink>
             </li>
             <NavLink to="/products" className={"nav-link"}>
                 <svg className="bi me-2" width={16} height={16} fill="currentColor">

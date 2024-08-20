@@ -12,6 +12,9 @@ import UserEditPage from "./users/UserEditPage";
 import ProductsPage from "./products/ProductsPage";
 import ProductCreatePage from "./products/ProductCreatePage";
 import ProductEditPage from "./products/ProductEditPage";
+import RequestsPage from "./requests/RequestsPage";
+import RequestCreatePage from "./requests/RequestCreatePage";
+import RequestEditPage from "./requests/RequestEditPage";
 
 function App() {
   return (
@@ -33,6 +36,9 @@ function App() {
               <Route path="/products" element={<ProductsPage/>}/>
               <Route path="/products/create" element={<ProductCreatePage/>}/>
               <Route path="/products/edit/:id" element={<ProductEditPage/>}/>
+              <Route path="/requests" element={<RequestsPage/>}/>
+              <Route path="/requests/create" element={<RequestCreatePage/>}/>
+              <Route path="/requests/edit/:id" element={<RequestEditPage/>}/>
             </Routes>
           </section>
         </main>

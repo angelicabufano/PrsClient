@@ -25,7 +25,6 @@ export const requestAPI = {
       .then(parseJSON);
   },
 
-
   put(request: Request) {
     return fetch(`${url}/${request.id}`, {
       method: "PUT",
@@ -33,8 +32,7 @@ export const requestAPI = {
       headers: {
         "Content-Type": "application/json",
       },
-    })   .then(checkStatus)
- 
+    }).then(checkStatus);
   },
 
   delete(id: number) {

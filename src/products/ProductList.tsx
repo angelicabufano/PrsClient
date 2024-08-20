@@ -26,7 +26,7 @@ function ProductsPage() {
   }, []);
 
   async function remove(product: Product) {
-    if (confirm("Are you sure you want to delete this Vendor?")) {
+    if (confirm("Are you sure you want to delete this Product?")) {
       if (product.id) {
         await productAPI.delete(product.id);
         let updatedProducts = products.filter((p) => p.id !== product.id);

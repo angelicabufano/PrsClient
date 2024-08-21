@@ -1,3 +1,4 @@
+import { RequestLine } from "../requestLines/RequestLine";
 import { User } from "../users/User";
 
 export class Request {
@@ -9,7 +10,7 @@ export class Request {
     status = "NEW";
     total: number | undefined;
     userId: number | undefined;
-
+    requestLine: RequestLine[] | undefined;
 
     user: User | undefined; 
     

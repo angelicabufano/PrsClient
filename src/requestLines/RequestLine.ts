@@ -2,7 +2,7 @@ import { Product } from "../products/Product";
 import { User } from "../users/User";
 
 
-export class RequestLines {
+export class RequestLine {
   id: number | undefined = undefined;
   quantity: number | undefined;
 

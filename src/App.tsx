@@ -16,6 +16,8 @@ import RequestsPage from "./requests/RequestsPage";
 import RequestCreatePage from "./requests/RequestCreatePage";
 import RequestEditPage from "./requests/RequestEditPage";
 import RequestDetails from "./requests/RequestDetails";
+import RequestLineCreatePage from "./requestLines/RequestLineCreatePage";
+import RequestLineEditPage from "./requestLines/RequestLineEditPage";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
               <Route path="/requests/create" element={<RequestCreatePage/>}/>
               <Route path="/requests/edit/:id" element={<RequestEditPage/>}/>
               <Route path="/requests/detail/:id" element={<RequestDetails/>}/>
+              <Route path="/requestLines/create" element={<RequestLineCreatePage/>}/>
+              <Route path="/requestLines/edit/:id" element={<RequestLineEditPage/>}/>
             </Routes>
           </section>
         </main>

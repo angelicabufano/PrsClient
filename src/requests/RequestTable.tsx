@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Request } from "./Request";
 import { requestAPI } from "./RequestAPI";
-import RequestCard from "./RequestCard";
+// import RequestCard from "./RequestCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { toast } from "react-hot-toast";
+import RequestTableRow from "./RequestTableRow";
 
-function RequestsPage() {
+function RequestTable() {
   const [requests, setRequest] = useState<Request[]>([]);
   const [busy, setBusy] = useState(false);
 
@@ -46,13 +47,25 @@ function RequestsPage() {
         </section>
       )}
 
-      <section className="d-flex flex-wrap gap-4 list bg-secondary-subtle p-3">
-        {requests.map((request) => (
-          <RequestCard key={request.id} request={request} onRemove={remove} />
-        ))}
-      </section>
+<table className="table table-hover w-75">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Requested By</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {requests.map((request) => (
+            <RequestTableRow key={request.id} request={request} onRemove={remove} />
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
 
-export default RequestsPage;
+export default RequestTable;

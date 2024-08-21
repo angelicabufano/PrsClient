@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RequestList from "./RequestList";
+import RequestTable from "./RequestTable";
 import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 
 function RequestsPage() {
@@ -15,7 +15,7 @@ function RequestsPage() {
       </nav>
 
 <hr />
-      <RequestList />
+      <RequestTable />
     </>
   );
 }

@@ -35,10 +35,10 @@ function RequestForm() {
       let savedRequest;
       if (request.isNew) {
         savedRequest = await requestAPI.post(request);
-        navigate(`/request/detail/${savedRequest.id}`);
+        navigate(`/requests/detail/${savedRequest.id}`);
       } else {
         savedRequest = await requestAPI.put(request);
-        navigate(`/request/detail/${requestId}`);
+        navigate(`/requests/detail/${requestId}`);
       }
       console.log(savedRequest);
     } catch (error: any) {
@@ -71,9 +71,9 @@ function RequestForm() {
               className={`form-select ${errors.deliveryMode && "is-invalid"}`}
               {...register("deliveryMode", { required: "State is required" })}>
               <option value="">Select...</option>
-              <option value="AL">Pickup</option>
-              <option value="AK">Delivery</option>
-              <option value="AZ">Signature Delivery</option>
+              <option value="Pickup">Pickup</option>
+              <option value="Delivery">Delivery</option>
+              <option value="Signature Delivery">Signature Delivery</option>
             </select>
             <div className="invalid-feedback">{errors?.deliveryMode?.message}</div>
           </div>

@@ -15,6 +15,7 @@ import ProductEditPage from "./products/ProductEditPage";
 import RequestsPage from "./requests/RequestsPage";
 import RequestCreatePage from "./requests/RequestCreatePage";
 import RequestEditPage from "./requests/RequestEditPage";
+import RequestDetails from "./requests/RequestDetails";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="/requests" element={<RequestsPage/>}/>
               <Route path="/requests/create" element={<RequestCreatePage/>}/>
               <Route path="/requests/edit/:id" element={<RequestEditPage/>}/>
+              <Route path="/requests/detail/:id" element={<RequestDetails/>}/>
             </Routes>
           </section>
         </main>

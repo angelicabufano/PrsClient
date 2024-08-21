@@ -4,7 +4,7 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Request } from "./Request";
 import { requestAPI } from "./RequestAPI";
 // import RequestLineTable from "../requestLine/RequestLineTable";
-import { User } from "../users/User";
+
 
 function RequestDetails() {
   const { requestId: RequestIdAsString } = useParams<{
@@ -63,7 +63,7 @@ function RequestDetails() {
   return (
     <>
       <nav className="d-flex justify-content-between pe-2">
-        <h4>Request</h4>
+        <h4>Requests</h4>
         <Link to={`/requests/edit/${request.id}`} className="btn btn-outline-primary">
           edit request
         </Link>

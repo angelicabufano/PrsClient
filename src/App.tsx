@@ -44,7 +44,7 @@ function App() {
               <Route path="/requests/edit/:id" element={<RequestEditPage/>}/>
               <Route path="/requests/detail/:id" element={<RequestDetails/>}/>
               <Route path="/requests/detail/:id/requestLines/create" element={<RequestLineCreatePage/>}/>
-              <Route path="/requests/detail/:id/requestLines/edit/:lineid" element={<RequestLineEditPage/>}/>
+              <Route path="/requests/detail/:id/requestLines/edit/:lineId" element={<RequestLineEditPage/>}/>
             </Routes>
           </section>
         </main>

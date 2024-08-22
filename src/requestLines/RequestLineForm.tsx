@@ -7,11 +7,10 @@ import { useState } from "react";
 import { Product } from "../products/Product";
 import { productAPI } from "../products/ProductAPI";
 
-
 function RequestLineForm() {
   const navigate = useNavigate();
 
-  let { id: requestIdAsString, lineId: lineIdAsString } = useParams<{ id: string, lineId:string }>();
+  let { id: requestIdAsString, lineId: lineIdAsString } = useParams<{ id: string; lineId: string }>();
   let requestLineId = Number(lineIdAsString);
   let requestId = Number(requestIdAsString);
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,14 +24,12 @@ function RequestLineForm() {
       let productsData = await productAPI.list();
       setProducts(productsData);
 
-        if (!requestLineId) {
-      let newRequestLine = new RequestLine({ requestId: requestId });
-      return Promise.resolve(newRequestLine);
-       }
-      else {
-         return await requestLineAPI.find(requestLineId);
-          
-        }
+      if (!requestLineId) {
+        let newRequestLine = new RequestLine({ requestId: requestId });
+        return Promise.resolve(newRequestLine);
+      } else {
+        return await requestLineAPI.find(requestLineId);
+      }
     },
   });
 
@@ -43,8 +40,8 @@ function RequestLineForm() {
       } else {
         await requestLineAPI.put(requestLine);
       }
-  
-      navigate(`/requests/detail/${requestId}`)
+
+      navigate(`/requests/detail/${requestId}`);
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -59,7 +56,7 @@ function RequestLineForm() {
         <select
           {...register("productId", {
             required: "Product is required",
-            valueAsNumber: true
+            valueAsNumber: true,
           })}
           className={`form-select ${errors.productId && "is-invalid"} `}
           id="product">
@@ -80,13 +77,13 @@ function RequestLineForm() {
         <input
           {...register("quantity", {
             required: "quantity is required",
-            valueAsNumber:true
+            valueAsNumber: true,
           })}
           className="form-control"
           type="text"
           id="quantity"
         />
-      <div className="invalid-feedback">{errors?.quantity?.message}</div>
+        <div className="invalid-feedback">{errors?.quantity?.message}</div>
       </div>
 
       <div className="d-flex gap-2">

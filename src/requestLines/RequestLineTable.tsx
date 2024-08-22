@@ -40,7 +40,7 @@ function RequestLineTable({ request, onRemove }: RequestLineInterface) {
                 <td>{requestLine.quantity}</td>
                 <td>${(parseFloat(requestLine.product?.price ?? '0') * (requestLine.quantity ?? 0))}</td>
                 <td>
-                  <Link to={`/requests/detail/:id/requestLines/edit/${requestLine.id}`}>
+                  <Link to={`/requests/detail/${request.id}/requestLines/edit/${requestLine.id}`}>
                     <svg className="bi m-2" width="15" height="15" fill="currentColor">
                       <use xlinkHref={`${bootstrapIcons}#pencil`} />
                     </svg>

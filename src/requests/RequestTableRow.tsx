@@ -15,8 +15,9 @@ function RequestTableRow({ request, onRemove }: RequestTableRowProps) {
       <td>
      {request.description}
       </td>
-      <td>{request.status}</td>
-
+      <td>
+      <td className="m-2 badge text-bg-primary">{request.status}</td>
+      </td>
       <td>${request.total}</td>
       <td>{request.user?.firstname} {request.user?.lastname}</td>
       <td>

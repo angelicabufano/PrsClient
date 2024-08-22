@@ -28,8 +28,10 @@ function UserForm() {
     try {
       if (user.isNew) {
         await userAPI.post(user);
+        toast.success("Successfully saved.");
       } else {
         await userAPI.put(user);
+        toast.success("Successfully saved.");
       }
       navigate("/users");
     } catch (error: any) {

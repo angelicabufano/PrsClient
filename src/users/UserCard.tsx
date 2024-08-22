@@ -27,7 +27,7 @@ function UserCard({ user, onRemove }: UserCardProps) {
         <br />
         <span className="text-secondary">{user.isAdmin && "Admin"}</span>
           <span className="text-secondary"> {user.isAdmin && user.isReviewer && "| "}</span>
-          <span className="text-secondary">{user.isReviewer && "Reviwer"}</span>
+          <span className="text-secondary">{user.isReviewer && "Reviewer"}</span>
         <br />
         <span className="text-secondary">{user.phone}</span>
         <br />

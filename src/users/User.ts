@@ -12,6 +12,10 @@ export class User {
     get isNew(): boolean {
       return this.id === undefined;
     }
+
+    get initials(): string {
+      return  this.firstname.substring(0, 1) //+ this.lastName.substring(0, 1);
+    }
   
     constructor(initializer?: any) {
       if (!initializer) return;

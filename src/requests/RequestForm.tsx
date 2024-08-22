@@ -94,7 +94,7 @@ function RequestForm() {
           </div>
 
           <div className="col-4">
-            <label htmlFor="status" className="form-label">
+            <label htmlFor="status" className="form-label ">
               Status
             </label>
             <select

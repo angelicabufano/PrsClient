@@ -59,15 +59,25 @@ function RequestDetails() {
     }
   }
 
+  
+
   if (!request) return null;
 
   return (
     <>
       <nav className="d-flex justify-content-between pe-2">
         <h4>Requests</h4>
-        <Link to={`/requests/edit/${request.id}`} className="btn btn-outline-primary">
-          edit request
+        <h4>
+        <Link to={`/requests/edit/${request.id}`} className="m-2 btn btn-outline-primary">
+          Submit for Review
         </Link>
+        <Link to={`/requests/edit/${request.id}`} className=" m-2 btn btn-outline-success">
+          Approve
+        </Link>
+        <Link to={`/requests/edit/${request.id}`} className=" m-2 btn btn-outline-danger">
+          Reject
+        </Link>
+        </h4>
       </nav>
       <hr />
       <>
@@ -80,7 +90,7 @@ function RequestDetails() {
         )}
         {request && (
           <>
-            <section className="card d-flex flex-row gap-5 p-4 w-100 bg-body-tertiary">
+            <section className="card d-flex flex-row justify-content-between gap-5 p-4 w-100 bg-body-tertiary">
               <dl className="">
                 <dt>Description</dt>
                 <dd>{request.description}</dd>
@@ -91,10 +101,9 @@ function RequestDetails() {
                 <dt>Delivery Method</dt>
                 <dd>{request.deliveryMode}</dd>
                 <dt>Status</dt>
-                <dd className={getBadgeClass(request?.status)}>{request?.status}</dd>
+                <dd className= {getBadgeClass (request?.status)}>{request?.status}</dd>
               </dl>
-            </section>
-            <div>
+              <div>
               <dl>
                 <dt>Requested By</dt>
                 <dd>
@@ -102,6 +111,8 @@ function RequestDetails() {
                 </dd>
               </dl>
             </div>
+            </section>
+      
 
              <div>
               <RequestLineTable request={request} onRemove={removeRequestLine} />

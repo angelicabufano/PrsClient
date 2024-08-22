@@ -10,7 +10,7 @@ interface ProductCardProps {
 function ProductCard({ product, onRemove }: ProductCardProps) {
   return (
     <div>
-      <article className="card p-4" style={{ width: "20rem" }} key={product.id}>
+      <article className="card p-4" style={{ width: "20rem", height: "16rem"}} key={product.id}>
         <div className="d-flex justify-content-end">
           <Dropdown align="end">
             <Dropdown.Toggle variant="link" bsPrefix="p-0">

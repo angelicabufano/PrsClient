@@ -27,8 +27,10 @@ function RequestLineForm() {
       if (!requestLineId) {
         let newRequestLine = new RequestLine({ requestId: requestId });
         return Promise.resolve(newRequestLine);
+        toast.success("Successfully saved.");
       } else {
         return await requestLineAPI.find(requestLineId);
+        toast.success("Successfully saved.");
       }
     },
   });

@@ -28,8 +28,10 @@ export default function VendorForm() {
     try {
       if (vendor.isNew) {
         await vendorAPI.post(vendor);
+        toast.success("Successfully saved.");
       } else {
         await vendorAPI.put(vendor);
+        toast.success("Successfully saved.");
       }
       navigate("/vendors");
     } catch (error: any) {

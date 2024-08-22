@@ -12,7 +12,7 @@ export default function ProductForm() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const productId = Number(id);
-  const [vendors, setVendor] = useState<Vendor[]>([])
+  const [vendors, setVendor] = useState<Vendor[]>([]);
 
   const {
     register,
@@ -22,7 +22,7 @@ export default function ProductForm() {
     defaultValues: async () => {
       let vendorList = await vendorAPI.list();
       setVendor(vendorList);
-      
+
       if (!productId) {
         return Promise.resolve(new Product());
       } else {
@@ -35,8 +35,10 @@ export default function ProductForm() {
     try {
       if (product.isNew) {
         await productAPI.post(product);
+        toast.success("Successfully saved.");
       } else {
         await productAPI.put(product);
+        toast.success("Successfully saved.");
       }
       navigate("/products");
     } catch (error: any) {
@@ -108,24 +110,24 @@ export default function ProductForm() {
           <div className="invalid-feedback">{errors?.unit?.message}</div>
         </div>
         <div className="row-3 d-flex flex-row w-100 gap-4">
-          <div className="mb-3 w-50">
-          <label htmlFor="form-label">Vendor</label>
-          <select
-            {...register("vendorId", { required: "Vendor is Required" })}
-            className={`form-select ${errors.vendorId && "is-invalid"}`}>
-              <option value="">Select...</option>
+          <div className="mb-3 w-75">
+            <label htmlFor="form-label">Vendor</label>
+            <select
+              {...register("vendorId", { required: "Vendor is Required" })}
+              className={`form-select ${errors.vendorId && "is-invalid"}`}>
+              <option value="">Select Vendor...</option>
+
               {vendors.map((vendor) => (
                 <option key={vendor.id} value={vendor.id}>
                   {vendor.name}
                 </option>
               ))}
-
             </select>
             <div className="invalid-feedback">{errors?.vendor?.message}</div>
           </div>
         </div>
       </div>
-     
+
       <div className="row-3 d-flex flex-row justify-content-end w-100 gap-4">
         <div className="d-flex justify-content-end mt-4">
           <Link className="btn btn-outline-primary me-2" to={"/products"}>

@@ -5,6 +5,7 @@ import { User } from "./User";
 const url = `${BASE_URL}/users`;
 
 export const userAPI = {
+  
   list(): Promise<User[]> {
     return fetch(url).then(checkStatus).then(delay(200)).then(parseJSON);
   },
@@ -39,5 +40,8 @@ export const userAPI = {
 
   delete(id: number) {
     return fetch(`${url}/${id}`, { method: "DELETE" }).then(checkStatus);
+  },
+  findByAccount(username: string, password: string): Promise<User> {
+    return fetch(`${url}/${username}/${password}`).then(checkStatus).then(parseJSON);
   },
 };

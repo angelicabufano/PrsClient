@@ -10,7 +10,7 @@ interface VendorCardProps {
 function VendorCard({ vendor, onRemove }: VendorCardProps) {
   return (
     <div>
-      <article className="card p-4" style={{ width: "18rem" }} key={vendor.id}>
+      <article className="card p-4" style={{ width: "18rem", height: "14rem" }} key={vendor.id}>
         <div className="d-flex justify-content-between">
           <div className="">
             <strong className="card-title"> {vendor.name} </strong>
@@ -34,15 +34,19 @@ function VendorCard({ vendor, onRemove }: VendorCardProps) {
             </Dropdown.Menu>
           </Dropdown>
         </div>
+
         <div className="badge text-bg-secondary" style={{ width: "5rem" }}>
           {vendor.code}
         </div>
+
+        <br />
         <small>
           <div>{vendor.address}</div>
           <div>
-            {vendor.city} {vendor.state}
+            {vendor.city} {vendor.state} {vendor.zip}
           </div>
-          {vendor.zip}
+          <div>{vendor.phone}</div>
+          {vendor.email}
         </small>
       </article>
     </div>

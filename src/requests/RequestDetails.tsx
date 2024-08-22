@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Request } from "./Request";
 import { requestAPI } from "./RequestAPI";
 
 import RequestLineTable from "../requestLines/RequestLineTable";
 import { RequestLine } from "../requestLines/RequestLine";
+import { requestLineAPI } from "../requestLines/RequestLineAPI";
 
 
 function RequestDetails() {
-  const { requestId: RequestIdAsString } = useParams<{
-    requestId: string;
-  }>();
+
   let {id} = useParams<{id: string}>();
   const requestId = Number(id);
   const [request, setRequest] = useState<Request | undefined>(undefined);
@@ -48,16 +47,16 @@ function RequestDetails() {
   };
 
   async function removeRequestLine(requestLine: RequestLine) {
-    // if (confirm("Are you sure you want to delete this Request?")) {
-    //   if (requestLine.id) {
-    //     await requestLineAPI.delete(requestLine.id);
-    //     toast.success("Successfully deleted.");
-    //     let updatedRequestLines = request?.requestLines?.filter((rl) => rl.id !== requestLine.id);
-    //     if (request) {
-    //       setRequest({ ...request, requestLines: updatedRequestLines } as Request);
-    //     }
-    //   }
-    // }
+    if (confirm("Are you sure you want to delete this Request?")) {
+      if (requestLine.id) {
+        await requestLineAPI.delete(requestLine.id);
+        toast.success("Successfully deleted.");
+        let updatedRequestLines = request?.requestLine?.filter((rl) => rl.id !== requestLine.id);
+        if (request) {
+          setRequest({ ...request, requestLine: updatedRequestLines } as Request);
+        }
+      }
+    }
   }
 
   if (!request) return null;

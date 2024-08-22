@@ -43,8 +43,8 @@ function App() {
               <Route path="/requests/create" element={<RequestCreatePage/>}/>
               <Route path="/requests/edit/:id" element={<RequestEditPage/>}/>
               <Route path="/requests/detail/:id" element={<RequestDetails/>}/>
-              <Route path="/requestLines/create" element={<RequestLineCreatePage/>}/>
-              <Route path="/requestLines/edit/:id" element={<RequestLineEditPage/>}/>
+              <Route path="/requests/detail/:id/requestLines/create" element={<RequestLineCreatePage/>}/>
+              <Route path="/requests/detail/:id/requestLines/edit/:lineid" element={<RequestLineEditPage/>}/>
             </Routes>
           </section>
         </main>

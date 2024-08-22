@@ -1,6 +1,6 @@
 import { RequestLine } from "./RequestLine";
 import { Request } from "../requests/Request";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SyntheticEvent } from "react";
 import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 
@@ -17,7 +17,7 @@ function RequestLineTable({ request, onRemove }: RequestLineInterface) {
           <label htmlFor="table">
             <h4>Items</h4>
           </label>
-          <Link className=" btn btn-primary" to="requestLines/create">
+          <Link className=" btn btn-primary" to={`/requests/detail/${request.id}/requestLines/create`}>
             + New Request Line
           </Link>
         </div>
@@ -40,7 +40,7 @@ function RequestLineTable({ request, onRemove }: RequestLineInterface) {
                 <td>{requestLine.quantity}</td>
                 <td>${(parseFloat(requestLine.product?.price ?? '0') * (requestLine.quantity ?? 0))}</td>
                 <td>
-                  <Link to={`requestLines/edit/${requestLine.id}`}>
+                  <Link to={`/requests/detail/:id/requestLines/edit/${requestLine.id}`}>
                     <svg className="bi m-2" width="15" height="15" fill="currentColor">
                       <use xlinkHref={`${bootstrapIcons}#pencil`} />
                     </svg>

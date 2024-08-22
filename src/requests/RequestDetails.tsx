@@ -3,7 +3,9 @@ import toast from "react-hot-toast";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Request } from "./Request";
 import { requestAPI } from "./RequestAPI";
-// import RequestLineTable from "../requestLine/RequestLineTable";
+
+import RequestLineTable from "../requestLines/RequestLineTable";
+import { RequestLine } from "../requestLines/RequestLine";
 
 
 function RequestDetails() {
@@ -45,18 +47,18 @@ function RequestDetails() {
     }
   };
 
-//   async function removeRequestLine(requestLine: RequestLine) {
-//     if (confirm("Are you sure you want to delete this Request?")) {
-//       if (requestLine.id) {
-//         await requestLineAPI.delete(requestLine.id);
-//         toast.success("Successfully deleted.");
-//         let updatedRequestLines = request?.requestLines?.filter((rl) => rl.id !== requestLine.id);
-//         if (request) {
-//           setRequest({ ...request, requestLines: updatedRequestLines } as Request);
-//         }
-//       }
-//     }
-//   }
+  async function removeRequestLine(requestLine: RequestLine) {
+    // if (confirm("Are you sure you want to delete this Request?")) {
+    //   if (requestLine.id) {
+    //     await requestLineAPI.delete(requestLine.id);
+    //     toast.success("Successfully deleted.");
+    //     let updatedRequestLines = request?.requestLines?.filter((rl) => rl.id !== requestLine.id);
+    //     if (request) {
+    //       setRequest({ ...request, requestLines: updatedRequestLines } as Request);
+    //     }
+    //   }
+    // }
+  }
 
   if (!request) return null;
 
@@ -102,9 +104,9 @@ function RequestDetails() {
               </dl>
             </div>
 
-            {/* <div>
+             <div>
               <RequestLineTable request={request} onRemove={removeRequestLine} />
-            </div> */}
+            </div> 
           </>
         )}
       </>

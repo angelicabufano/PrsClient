@@ -6,6 +6,7 @@ import { requestAPI } from "./RequestAPI";
 import { useState } from "react";
 import { User } from "../users/User";
 import { userAPI } from "../users/UserAPI";
+import bootstrapIcons from "bootstrap-icons/bootstrap-icons.svg";
 
 function RequestForm() {
   const navigate = useNavigate();
@@ -133,12 +134,12 @@ function RequestForm() {
             <NavLink to="/requests" className="btn btn-outline-primary me-2 form-check">
               Cancel
             </NavLink>
-            <button className="btn btn-primary form-check">
-              <svg className="me-2" width={15} height={23} fill="currentColor">
-                <use xlinkHref="../node_modules/bootstrap-icons/bootstrap-icons.svg#save" />
-              </svg>
-              Save Request
-            </button>
+            <button className="btn btn-primary">
+            <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
+              <use xlinkHref={`${bootstrapIcons}#save`} />
+            </svg>
+            Save Request
+          </button>
           </div>
         </form>
       </div>

@@ -135,7 +135,7 @@ export default function ProductForm() {
             <svg className="bi pe-none me-2" width={16} height={16} fill="#FFFFFF">
               <use xlinkHref={`${bootstrapIcons}#save`} />
             </svg>
-            Save product
+            Save Product
           </button>
         </div>
       </div>

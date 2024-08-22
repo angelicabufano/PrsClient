@@ -59,6 +59,7 @@ function RequestLineForm() {
         <select
           {...register("productId", {
             required: "Product is required",
+            valueAsNumber: true
           })}
           className={`form-select ${errors.productId && "is-invalid"} `}
           id="product">
@@ -79,6 +80,7 @@ function RequestLineForm() {
         <input
           {...register("quantity", {
             required: "quantity is required",
+            valueAsNumber:true
           })}
           className="form-control"
           type="text"
@@ -89,7 +91,7 @@ function RequestLineForm() {
 
       <div className="d-flex gap-2">
         <button className="btn btn-outline-primary">Save</button>
-        <Link className="btn btn-outline-secondary" to={`/request/detail/${requestId}`}>
+        <Link className="btn btn-outline-secondary" to={`/requests/detail/${requestId}`}>
           Cancel
         </Link>
       </div>

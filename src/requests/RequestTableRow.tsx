@@ -9,6 +9,18 @@ interface RequestTableRowProps {
 }
 
 function RequestTableRow({ request, onRemove }: RequestTableRowProps) {
+  const getBadgeClass = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "new":
+        return "badge bg-primary";
+      case "review":
+        return "badge bg-warning";
+      case "approved":
+        return "badge bg-success";
+      case "rejected":
+        return "badge bg-danger";
+    }
+  }
   return (
     <tr>
       <td>{request.id}</td>
@@ -16,7 +28,9 @@ function RequestTableRow({ request, onRemove }: RequestTableRowProps) {
      {request.description}
       </td>
       <td>
-      <td className="m-2 badge text-bg-primary">{request.status}</td>
+      <td>
+        <span className={getBadgeClass(request.status)}>{request.status}</span>
+      </td>
       </td>
       <td>${request.total}</td>
       <td>{request.user?.firstname} {request.user?.lastname}</td>

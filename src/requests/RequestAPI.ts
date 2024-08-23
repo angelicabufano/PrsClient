@@ -13,6 +13,10 @@ export const requestAPI = {
     return fetch(`${url}/${id}`).then(checkStatus).then(parseJSON);
   },
 
+
+  
+
+
   post(request: Request) {
     return fetch(`${url}`, {
       method: "POST",
@@ -37,5 +41,33 @@ export const requestAPI = {
 
   delete(id: number) {
     return fetch(`${url}/${id}`, { method: "DELETE" }).then(checkStatus);
+  },
+
+  review(request: Request) {
+    return fetch(`${url}/review/${request.id}`, {
+      method: "PUT",
+      body: JSON.stringify(request),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(checkStatus);
+  },
+  approve(request: Request) {
+    return fetch(`${url}/approve/${request.id}`, {
+      method: "PUT",
+      body: JSON.stringify(request),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(checkStatus);
+  },
+  reject(request: Request) {
+    return fetch(`${url}/reject/${request.id}`, {
+      method: "PUT",
+      body: JSON.stringify(request),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   },
 };
